@@ -1,0 +1,47 @@
+/* Cookie banner — import once in src/app/layout.tsx:  import "./cookie-consent.css"; */
+.cookie-banner {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 2147483000; /* above the live-chat bubble */
+  max-width: 560px;
+  width: calc(100% - 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  background: var(--white, #fff);
+  color: #17201b;
+  border: 1px solid var(--line, #dfe5e1);
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  font-size: 0.9rem;
+}
+.cookie-banner__text p { margin: 6px 0 0; line-height: 1.5; }
+.cookie-banner__text a { color: var(--green, #1f7a3f); }
+.cookie-banner__actions { display: flex; gap: 10px; }
+.cookie-banner__btn {
+  flex: 1;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--green, #1f7a3f);
+  background: transparent;
+  color: var(--green, #1f7a3f);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.cookie-banner__btn--accept { background: var(--green, #1f7a3f); color: #fff; }
+.cookie-settings-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+@media (max-width: 480px) {
+  .cookie-banner { left: 8px; bottom: 8px; width: calc(100% - 16px); }
+  .cookie-banner__actions { flex-direction: column; }
+}

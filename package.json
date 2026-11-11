@@ -1,0 +1,29 @@
+{
+  "name": "weeecentre",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "db:migrate": "node --env-file=.env.local scripts/db-migrate.mjs",
+    "db:migrate:prod": "node scripts/db-migrate.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.7",
+    "pg": "^8.13.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "resend": "^6.30.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/pg": "^8.11.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.7",
+    "typescript": "^5"
+  }
+}

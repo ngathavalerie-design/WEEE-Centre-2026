@@ -1,0 +1,42 @@
+/* Google reviews block — import once in src/app/layout.tsx:  import "./google-reviews.css"; */
+.g-reviews { padding: 32px 0; }
+.g-reviews__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+.g-reviews__head h2 { margin: 0 0 6px; }
+.g-reviews__summary { margin: 0; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.g-reviews__summary strong { font-size: 1.25rem; }
+.g-reviews__stars { color: #d6dbd8; letter-spacing: 1px; }
+.g-reviews__stars .is-on { color: #f4b400; }
+.g-reviews__stars .is-half {
+  background: linear-gradient(90deg, #f4b400 50%, #d6dbd8 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.g-reviews__actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.g-reviews__btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1.5px solid var(--green, #1f7a3f);
+  color: var(--green, #1f7a3f);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+.g-reviews__btn--primary { background: var(--green, #1f7a3f); color: #fff; }
+.g-reviews__list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.g-reviews__item { padding: 16px; border: 1px solid var(--line, #e2e8e4); border-radius: 12px; background: var(--white, #fff); }
+.g-reviews__author { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
+.g-reviews__author img { border-radius: 50%; }
+.g-reviews__author a { font-weight: 700; color: inherit; text-decoration: none; }
+.g-reviews__meta { font-size: 0.8125rem; opacity: 0.7; }
+.g-reviews__text {
+  margin: 0;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.g-reviews__attribution { margin: 12px 0 0; font-size: 0.75rem; opacity: 0.6; }
+.g-review-link { color: var(--green, #1f7a3f); font-weight: 600; text-decoration: none; }
+.g-review-link:hover { text-decoration: underline; }

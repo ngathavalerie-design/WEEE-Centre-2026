@@ -1,0 +1,149 @@
+/* Pickup scheduler + map — import once in src/app/layout.tsx:  import "./pickup.css";
+   Uses the brand variables already defined in globals.css (--green, --lime, --white, --line). */
+
+.pickup-map {
+  border: 1px solid var(--line, #e2e8e4);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 18px;
+  background: var(--white, #fff);
+}
+.pickup-map__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.pickup-map__header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.pickup-map__directions {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--green, #1f7a3f);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.pickup-map__directions:hover { text-decoration: underline; }
+
+.pickup-map__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #eef2ef;
+}
+.pickup-map__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.pickup-map__address {
+  margin: 8px 0 0;
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+.pickup-map__locate { margin-top: 12px; }
+.pickup-map__locate-btn {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1.5px dashed var(--green, #1f7a3f);
+  background: transparent;
+  color: var(--green, #1f7a3f);
+  font-weight: 600;
+  cursor: pointer;
+}
+.pickup-map__locate-btn:hover:not(:disabled) { background: rgba(31, 122, 63, 0.06); }
+.pickup-map__locate-btn:disabled { opacity: 0.6; cursor: progress; }
+.pickup-map__status { margin: 8px 0 0; font-size: 0.875rem; }
+.pickup-map__status--error { color: #b42318; }
+
+.pickup-fields__group {
+  border: 0;
+  padding: 0;
+  margin: 0 0 18px;
+}
+.pickup-fields__group legend {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.pickup-fields__label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.875rem;
+  margin-bottom: 10px;
+  flex: 1;
+  min-width: 0;
+}
+.pickup-fields__label input,
+.pickup-fields__label select {
+  padding: 10px 12px;
+  border: 1px solid var(--line, #d5ddd8);
+  border-radius: 8px;
+  font: inherit;
+  background: var(--white, #fff);
+}
+.pickup-fields__label input[aria-invalid="true"] { border-color: #b42318; }
+.pickup-fields__row {
+  display: flex;
+  gap: 12px;
+}
+.pickup-fields__hint { margin: 0; font-size: 0.8125rem; opacity: 0.75; }
+.pickup-fields__error { margin: 0; font-size: 0.8125rem; color: #b42318; }
+.pickup-fields__link {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--green, #1f7a3f);
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
+
+.pickup-fields__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.pickup-fields__chip { cursor: pointer; }
+.pickup-fields__chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.pickup-fields__chip span {
+  display: inline-block;
+  padding: 7px 12px;
+  border: 1px solid var(--line, #d5ddd8);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  transition: background 0.15s, border-color 0.15s;
+}
+.pickup-fields__chip input:checked + span {
+  background: var(--green, #1f7a3f);
+  border-color: var(--green, #1f7a3f);
+  color: #fff;
+}
+.pickup-fields__chip input:focus-visible + span {
+  outline: 2px solid var(--lime, #8bc34a);
+  outline-offset: 2px;
+}
+.pickup-fields__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 560px) {
+  .pickup-fields__row { flex-direction: column; gap: 0; }
+  .pickup-map__frame { aspect-ratio: 4 / 3; }
+}

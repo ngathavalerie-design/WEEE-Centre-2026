@@ -1,0 +1,134 @@
+.track-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 16px 72px;
+}
+.track-hero { margin-bottom: 24px; }
+.track-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--green, #1f7a3f);
+  margin: 0 0 6px;
+}
+.track-hero h1 { margin: 0 0 10px; }
+.track-hero p { margin: 0; opacity: 0.85; }
+
+.track-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+  padding: 18px;
+  border: 1px solid var(--line, #e2e8e4);
+  border-radius: 14px;
+  background: var(--white, #fff);
+}
+.track-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.track-form input {
+  padding: 11px 12px;
+  border: 1px solid var(--line, #d5ddd8);
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 400;
+}
+.track-form button {
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--green, #1f7a3f);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.track-form button:disabled { opacity: 0.6; cursor: progress; }
+.track-error { grid-column: 1 / -1; margin: 0; color: #b42318; font-size: 0.875rem; }
+
+.track-result {
+  margin-top: 24px;
+  padding: 22px;
+  border: 1px solid var(--line, #e2e8e4);
+  border-radius: 14px;
+  background: var(--white, #fff);
+}
+.track-result__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.track-result__ref { margin: 0; font-family: ui-monospace, monospace; font-size: 0.875rem; opacity: 0.7; }
+.track-result__head h2 { margin: 2px 0 0; }
+.track-result__lead { margin: 10px 0 20px; }
+
+.track-pill {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  background: #eef2ef;
+}
+.track-pill--confirmed { background: #e3f0ff; color: #1d4f91; }
+.track-pill--collected { background: #fff4d6; color: #7a5300; }
+.track-pill--completed { background: #dff3e6; color: #1f7a3f; }
+.track-pill--cancelled { background: #fde7e7; color: #b42318; }
+
+.track-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+}
+.track-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; position: relative; }
+.track-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: calc(50% + 18px);
+  right: calc(-50% + 18px);
+  height: 2px;
+  background: var(--line, #d5ddd8);
+}
+.track-step--done:not(:last-child)::after { background: var(--green, #1f7a3f); }
+.track-step__dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 2px solid var(--line, #d5ddd8);
+  background: var(--white, #fff);
+}
+.track-step--done .track-step__dot { background: var(--green, #1f7a3f); border-color: var(--green, #1f7a3f); color: #fff; }
+.track-step--current .track-step__dot { border-color: var(--green, #1f7a3f); color: var(--green, #1f7a3f); box-shadow: 0 0 0 4px rgba(31, 122, 63, 0.15); }
+.track-step__label { font-size: 0.8125rem; font-weight: 600; }
+.track-step--todo .track-step__label { opacity: 0.55; }
+.track-step__time { font-size: 0.75rem; opacity: 0.65; }
+
+.track-message {
+  padding: 12px 14px;
+  border-left: 4px solid var(--lime, #8bc34a);
+  background: #f5faf0;
+  border-radius: 6px;
+  margin-bottom: 18px;
+}
+.track-message p { margin: 4px 0 0; }
+
+.track-details { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin: 0 0 18px; }
+.track-details dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.65; }
+.track-details dd { margin: 2px 0 0; font-weight: 600; }
+.track-help { margin: 0; font-size: 0.875rem; opacity: 0.85; }
+
+@media (max-width: 640px) {
+  .track-form { grid-template-columns: 1fr; }
+  .track-details { grid-template-columns: 1fr; }
+  .track-step__label { font-size: 0.75rem; }
+}
