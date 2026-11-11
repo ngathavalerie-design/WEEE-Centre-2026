@@ -18,7 +18,7 @@ export default async function TrackPage({
   const ref = typeof params.ref === "string" ? params.ref : "";
 
   return (
-    <main className="track-page">
+    <div className="track-page">
       <section className="track-hero">
         <p className="track-eyebrow">Pickup tracking</p>
         <h1>Where&apos;s my pickup?</h1>
@@ -28,6 +28,6 @@ export default async function TrackPage({
         </p>
       </section>
       <TrackPickup initialReference={ref} />
-    </main>
+    </div>
   );
 }

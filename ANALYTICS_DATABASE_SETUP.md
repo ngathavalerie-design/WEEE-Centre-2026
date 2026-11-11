@@ -1,6 +1,6 @@
 # Analytics, Search Console, PostgreSQL & Pickup Map — Setup
 
-Code changes are listed in `INTEGRATION_PATCHES.md`. This guide covers the accounts and settings.
+This guide covers the accounts, keys and settings each feature needs. Deployment steps are in `README.md`.
 
 ## 1. Google Analytics 4
 

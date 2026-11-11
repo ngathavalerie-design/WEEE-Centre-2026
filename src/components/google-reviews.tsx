@@ -71,9 +71,12 @@ function Stars({ value }: { value: number }) {
 export default async function GoogleReviews({
   max = 3,
   title = "What our customers say",
+  wrapClassName,
 }: {
   max?: number;
   title?: string;
+  /** When set, wraps the block in <section className={wrapClassName}><div className="container">…, so nothing renders at all when there's no profile configured. */
+  wrapClassName?: string;
 }) {
   const place = await fetchPlace();
   const writeReview = reviewUrl();
@@ -83,7 +86,7 @@ export default async function GoogleReviews({
 
   if (!place && !writeReview) return null;
 
-  return (
+  const block = (
     <section className="g-reviews" aria-labelledby="g-reviews-title">
       <div className="g-reviews__head">
         <div>
@@ -143,5 +146,13 @@ export default async function GoogleReviews({
 
       {place && <p className="g-reviews__attribution">Reviews from Google</p>}
     </section>
+  );
+
+  return wrapClassName ? (
+    <section className={wrapClassName}>
+      <div className="container">{block}</div>
+    </section>
+  ) : (
+    block
   );
 }
